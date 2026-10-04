@@ -7,6 +7,14 @@
 
 	$base_topic = "zigbee2mqtt";
 
+	// --- Shared-secret check ---------------------------------------------
+	// Required, not optional -- this endpoint controls physical hardware,
+	// and without some gate, anything else on the LAN that happens to hit
+	// this URL (a port scanner, a misconfigured script, etc.) could
+	// trigger it too. Matches the key configured in MX3 Launcher's
+	// Settings screen -> Soundbar wake.
+	$wake_soundbar_key = "random password goes here";
+
 	$light_cluster[1]["lights"] = array($base_topic . "/Light_01" => "state_l2", $base_topic . "/Light_Laundry" => "state", $base_topic . "/Light_Toilet" => "state");
 	$light_cluster[2]["lights"] = array($base_topic . "/Socket_04" => "state", $base_topic . "/Socket_05" => "state");
 
